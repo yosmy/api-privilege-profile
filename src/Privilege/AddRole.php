@@ -1,26 +1,25 @@
 <?php
 
-namespace Yosmy\Privilege\User;
+namespace Yosmy\Privilege;
 
-use Yosmy\Privilege\ManageUserCollection;
+use Yosmy\ManagePrivilegeCollection;
 
 /**
  * @di\service()
  */
-class RemoveRole
+class AddRole
 {
     /**
-     * @var ManageUserCollection
+     * @var ManagePrivilegeCollection
      */
     private $manageCollection;
 
     /**
-     * @param ManageUserCollection $manageCollection
+     * @param ManagePrivilegeCollection $manageCollection
      */
     public function __construct(
-        ManageUserCollection $manageCollection
-    )
-    {
+        ManagePrivilegeCollection $manageCollection
+    ) {
         $this->manageCollection = $manageCollection;
     }
 
@@ -28,7 +27,7 @@ class RemoveRole
      * @param string $id
      * @param string $role
      */
-    public function remove(
+    public function add(
         string $id,
         string $role
     ) {
@@ -37,7 +36,7 @@ class RemoveRole
                 '_id' => $id
             ],
             [
-                '$pull' => [
+                '$addToSet' => [
                     'roles' => $role
                 ]
             ]

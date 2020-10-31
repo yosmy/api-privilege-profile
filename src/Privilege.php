@@ -1,13 +1,13 @@
 <?php
 
-namespace Yosmy\Privilege;
+namespace Yosmy;
 
-interface User
+interface Privilege
 {
     /**
      * @return string
      */
-    public function getId(): string;
+    public function getUser(): string;
 
     /**
      * @return array

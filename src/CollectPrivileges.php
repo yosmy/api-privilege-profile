@@ -1,21 +1,21 @@
 <?php
 
-namespace Yosmy\Privilege;
+namespace Yosmy;
 
 /**
  * @di\service()
  */
-class CollectUsers
+class CollectPrivileges
 {
     /**
-     * @var ManageUserCollection
+     * @var ManagePrivilegeCollection
      */
     private $manageCollection;
 
     /**
-     * @param ManageUserCollection $manageCollection
+     * @param ManagePrivilegeCollection $manageCollection
      */
-    public function __construct(ManageUserCollection $manageCollection)
+    public function __construct(ManagePrivilegeCollection $manageCollection)
     {
         $this->manageCollection = $manageCollection;
     }
@@ -23,9 +23,9 @@ class CollectUsers
     /**
      * @param string[]|null $roles
      *
-     * @return Users
+     * @return Privileges
      */
-    public function collectHaving($roles = null)
+    public function collectHaving($roles = null): Privileges
     {
         $criteria = [];
 
@@ -39,9 +39,9 @@ class CollectUsers
     /**
      * @param string[]|null $roles
      *
-     * @return Users
+     * @return Privileges
      */
-    public function collectNotHaving($roles = null)
+    public function collectNotHaving($roles = null): Privileges
     {
         $criteria = [];
 
@@ -55,12 +55,12 @@ class CollectUsers
     /**
      * @param array $criteria
      *
-     * @return Users
+     * @return Privileges
      */
-    private function collect(array $criteria)
+    private function collect(array $criteria): Privileges
     {
         $cursor = $this->manageCollection->find($criteria);
 
-        return new Users($cursor);
+        return new Privileges($cursor);
     }
 }

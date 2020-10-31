@@ -1,22 +1,22 @@
 <?php
 
-namespace Yosmy\Privilege;
+namespace Yosmy;
 
 /**
  * @di\service()
  */
-class AddUser
+class AddPrivilege
 {
     /**
-     * @var ManageUserCollection
+     * @var ManagePrivilegeCollection
      */
     private $manageCollection;
 
     /**
-     * @param ManageUserCollection $manageCollection
+     * @param ManagePrivilegeCollection $manageCollection
      */
     public function __construct(
-        ManageUserCollection $manageCollection
+        ManagePrivilegeCollection $manageCollection
     ) {
         $this->manageCollection = $manageCollection;
     }

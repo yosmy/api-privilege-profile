@@ -1,5 +1,5 @@
 {
-    "name": "yosmy/privilege-user",
+    "name": "yosmy/privilege",
     "description": "",
     "license": "MIT",
     "authors": [
@@ -10,13 +10,12 @@
     ],
     "require": {
         "php": ">=7.2",
-        "ext-mongodb": "*",
-        "ext-json": "*",
-        "yosmy/mongo": "@dev"
+        "yosmy/mongo": "@dev",
+        "yosmy/uniqueness": "@dev"
     },
     "autoload": {
         "psr-4": {
-            "Yosmy\\Privilege\\": [
+            "Yosmy\\": [
                 "src"
             ]
         }
