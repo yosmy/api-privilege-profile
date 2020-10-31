@@ -10,13 +10,13 @@ use Traversable;
 class Users implements IteratorAggregate, JsonSerializable
 {
     /**
-     * @var User[]
+     * @var BaseUser[]
      */
     private $cursor;
 
     /**
      * @param Traversable $cursor
-     * @param string $type
+     * @param string|null $type
      */
     public function __construct(
         Traversable $cursor,
